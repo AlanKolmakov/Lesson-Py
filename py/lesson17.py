@@ -4,6 +4,8 @@
 #     """Класс для предоставления координат точек на плоскости"""
 #     x = 1
 #     y = 1
+
+
 #
 #     def set_coords(self, x, y):
 #         self.x = x
@@ -275,10 +277,6 @@
 #         self.y = y
 #         Point.count += 1
 #
-#     # def increment(self):
-#     #     self.count += 1
-#     #     return self.count
-#
 #
 # p1 = Point(5, 10)
 # p2 = Point(2, 3)
@@ -316,7 +314,7 @@
 # droid3 = Robot('B1-4V')
 # droid3.say_hi()
 #
-# print(f"\n\nЗдесь роботы могут проделать какую-то работу\n")
+# print(f"\nЗдесь роботы могут проделать какую-то работу\n")
 #
 # print(f"Роботы закончили свою работу. Давайте их выключим")
 # del droid1
@@ -374,6 +372,75 @@
 # p1._Point__x = 40
 # print(p1.__dict__)
 
+# Создать класс Rectangle, описывающий прямоугольник.
+# В классе должны быть все необходимые методы, а так же методы вычисления площади,
+# периметра и диагонали, и метод, который рисует прямоугольник
+# Длина прямоугольника: 3
+# Ширина прямоугольника: 9
+# Площадь прямоугольника: 27
+# Периметр прямоугольника: 54
+# Гипотенуза прямоугольника: 9.49
+# *********
+# *********
+# *********
+
+# class Rectangle:
+#     def __init__(self, length=1, width=1):
+#         self.__length = length
+#         self.__width = width
+#
+#     def __check_value(z):
+#         if isinstance(z,(int, float)):
+#             return True
+#
+#     # Setters
+#     def set_width(self, width):
+#         if Rectangle.__check_value(width):
+#             self.__width = width
+#         else:
+#             print("Координата ширины должна быть числом")
+#
+#     def set_length(self, length):
+#         if Rectangle.__check_value(length):
+#             self.__length = length
+#         else:
+#             raise ValueError("Длина должна быть числом")
+#
+#     # Getters
+#     def get_width(self):
+#         return self.__width
+#
+#     def get_length(self):
+#         return self.__length
+#
+#     # площадь
+#     def get_area(self):
+#         return self.__length * self.__width
+#
+#     # периметр
+#     def get_perimetr(self):
+#         return 2 * (self.__length + self.__width)
+#
+#     # диагональ прямоугольника
+#     def get_hypotenuse(self):
+#         return round((self.__length**2 + self.__width**2)**.5, 2)
+#
+#     def get_draw(self):
+#         for i in range(self.__length):
+#             print("*" * self.__width)
+#
+#
+# a = Rectangle(4, 12)
+# a.set_length(3)
+# a.set_width(9)
+# print(f"Длина прямоугольника: {a.get_length()}")
+# print(f"Ширина прямоугольника: {a.get_width()}")
+# print("Площадь прямоугольника:", a.get_area())
+# print("Периметр прямоугольника:", a.get_perimetr())
+# print("Гипотенуза прямоугольника:", a.get_hypotenuse())
+# a.get_draw()
+
+# Вариант 2:
 # class Rectangle:
 #
 #     def __init__(self, a, b):
@@ -416,20 +483,20 @@
 #         self.__x = x
 #         self.__y = y
 
-    # def __getattr__(self, item):
-    #     return f"В классе {__class__.__name__} отсутствует атрибут {item}"
+# def __getattr__(self, item):
+#     return f"В классе {__class__.__name__} отсутствует атрибут {item}"
 
-    # def __getattribute__(self, item):
-    #     if item == "_Point__x":
-    #         return "Закрытая переменная"
-    #     else:
-    #         return object.__getattribute__(self, item)
+# def __getattribute__(self, item):
+#     if item == "_Point__x":
+#         return "Закрытая переменная"
+#     else:
+#         return object.__getattribute__(self, item)
 
-    # def __setattr__(self, key, value):
-    #     if key == "WIDTH":
-    #         raise AttributeError("Значение константы WIDTH изменять нельзя")
-    #     else:
-    #         self.__dict__==
+# def __setattr__(self, key, value):
+#     if key == "WIDTH":
+#         raise AttributeError("Значение константы WIDTH изменять нельзя")
+#     else:
+#         self.__dict__[key] = value
 
 #     def get_coords(self):
 #         return self.__x, self.__y
@@ -494,3 +561,22 @@
 # p1.kg_funt = 41
 # print(p1.to_pound())
 
+
+# class Point:
+#     __count = 0
+#
+#     def __init__(self, x=0, y=0):
+#         self.x = x
+#         self.y = y
+#         Point.__count += 1
+#
+#     @staticmethod
+#     def get_count():
+#         return Point.__count
+#
+#
+# p1 = Point()
+# p2 = Point()
+# p3 = Point()
+#
+# print(Point.get_count())
